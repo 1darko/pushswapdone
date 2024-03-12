@@ -1,0 +1,13 @@
+Check si les nombres sont bons
+
+• If no parameters are specified, the program must not display anything and give the
+prompt back.
+
+• In case of error, it must display "Error" followed by a ’\n’ on the standard error.
+Errors include for example: some arguments aren’t integers, some arguments are
+bigger than an integer and/or there are duplicates.
+
+• Print l'operation de sort a chaque fois avec un \n
+
+• 13 15 5 1 12 6 3 8 14 9 7 4 11 10 2 
+8 10 5 2 9 4 15 11 6 14 1 12 7 13 3 
