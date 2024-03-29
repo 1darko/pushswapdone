@@ -6,7 +6,7 @@
 /*   By: dakojic <dakojic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:15:50 by dakojic           #+#    #+#             */
-/*   Updated: 2024/03/29 12:27:41 by dakojic          ###   ########.fr       */
+/*   Updated: 2024/03/29 13:56:49 by dakojic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,6 @@ void	enlarge_struct(t_check **a, char *line)
 		end = lastnode_check(*a);
 		end->next = temp;
 	}
-	printf("Le debut est a %s", (*a)->str);
-	print_stack2(*a);
 }
 
 size_t	ft_strlen(const char *str)
@@ -364,19 +362,19 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-void print_stack(t_stack *stack) {
-    t_stack *current = stack;
+// void print_stack(t_stack *stack) {
+//     t_stack *current = stack;
 
-    printf("[ ");
-    while (current != NULL) {
-        printf("%d", current->nbr);
-        if (current->next != NULL) {
-            printf(" -> ");
-        }
-        current = current->next;
-    }
-    printf(" ]\n");
-}
+//     printf("[ ");
+//     while (current != NULL) {
+//         printf("%d", current->nbr);
+//         if (current->next != NULL) {
+//             printf(" -> ");
+//         }
+//         current = current->next;
+//     }
+//     printf(" ]\n");
+// }
 void	pushers(t_stack **a, t_stack **b, t_check **c)
 {
 	if((*c)->str[1] == 'a')
@@ -394,7 +392,7 @@ void swappers(t_stack **a, t_stack **b, t_check **c)
 		ss(a, b, 0);		
 }
 void	rotate_up(t_stack **a, t_stack **b, t_check **c)
-{printf("JE RENTRE ICI\n");
+{
 	if((*c)->str[1] == 'a'){
 		ra(a, 0);}
 	else if ((*c)->str[1] == 'b')
@@ -445,9 +443,12 @@ int	check_error(t_check **c)
 	}
 	return (0);
 }
-void	sort(t_stack **a, t_stack **b, t_check **c)
+void new1(t_check **c, t_stack **a, t_stack **b)
 {
-	if(check_error(c) == 1)
+	t_check *temp;
+
+	temp = *c;
+	if(check_error(&temp) == 1)
 	{	
 		stash_free(a);
 		stash_free(b);
@@ -455,7 +456,11 @@ void	sort(t_stack **a, t_stack **b, t_check **c)
 		write(2, "Error\n", 6);
 		exit(1);
 	}
-	while(*c)
+}
+void sort(t_stack **a, t_stack **b, t_check **c)
+{
+    new1(c, a, b);
+    while(*c)
 	{
 		if((*c)->str[0] == 's')
 			swappers(a, b, c);
@@ -467,6 +472,20 @@ void	sort(t_stack **a, t_stack **b, t_check **c)
 			rotate_down(a, b, c);
 		(*c) = (*c)->next;
 	}
+}
+void new(t_check **c, t_stack **a, t_stack **b)
+{
+    t_check *temp;
+
+    temp = *c;
+    if (check_error(&temp) == 1)
+    {
+        stash_free(a);
+        stash_free(b);
+        stash_free_check(c);
+        write(2, "Error\n", 6);
+        exit(1);
+    }
 }
 int	main(int ac, char **arg)
 {
@@ -505,6 +524,7 @@ int	main(int ac, char **arg)
 	{ 
         write(1, "KO\n", 3);
 	}
-	print_stack(a);
+	// printf("La stack est a :\n");
+	// print_stack(a);
 	return (stash_free(&a), stash_free_check(&c), 0);
 }
