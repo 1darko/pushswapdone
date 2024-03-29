@@ -12,24 +12,24 @@
 
 #include "../push_swap.h"
 
-long ft_atol(char *str)
+long	ft_atol(char *str)
 {
-    int sign;
-    long nbr;
+	int		sign;
+	long	nbr;
 
-    sign = 1;
-    nbr = 0;
-    while (*str == ' ' || (*str >= 9 && *str <= 13))
+	sign = 1;
+	nbr = 0;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		++str;
-    if(*str == '-' || *str == '+')
-    {
-        if(*str == '-')
-            sign = -1;
-        ++str;
-    }
-    while(*str == '0')
-        ++str;
-    while(*str)
-        nbr = nbr * 10 + (*str++ - '0');
-    return(nbr * sign);
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+		sign = -1;
+		++str;
+	}
+	while (*str == '0')
+		++str;
+	while (*str)
+		nbr = nbr * 10 + (*str++ - '0');
+	return (nbr * sign);
 }

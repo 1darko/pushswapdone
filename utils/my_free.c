@@ -14,27 +14,30 @@
 
 //// Massive free
 /// Frees the char ** as a whole
-void    free_array(char **str)
+void	free_array(char **str)
 {
-    int i = -1;
-    while(str[i] != NULL)
-        free(str[i++]);
-    free(str - 1);
+	int	i;
+
+	i = -1;
+	while (str[i] != NULL)
+		free(str[i++]);
+	free(str - 1);
 }
+
 /// Frees the stack and  each node
 void	stash_free(t_stack **a)
 {
 	t_stack	*temp;
-    t_stack *cur;
+	t_stack	*cur;
 
-    if(!a)
-        return ;
-    cur = *a;
+	if (!a)
+		return ;
+	cur = *a;
 	while (cur != NULL)
 	{
 		temp = cur->next;
 		free(cur);
 		cur = temp;
 	}
-    free(cur);
+	free(cur);
 }

@@ -109,10 +109,10 @@ char	**ft_split(char const *str, char c)
 	copy = malloc(sizeof(char *) * (wdcount(str, c, (int *)0, 0) + 2));
 	if (!copy)
 		return (NULL);
-    copy[0] = malloc(1);
-    if(!copy[0])
-        return NULL;
-    copy[0][0] = '\0';
+	copy[0] = malloc(1);
+	if (!copy[0])
+		return (NULL);
+	copy[0][0] = '\0';
 	if (real_split(&(*copy) + 1, str, &i, c))
 	{
 		while (copy[j])

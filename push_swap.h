@@ -6,7 +6,7 @@
 /*   By: dakojic <dakojic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 18:02:54 by dakojic           #+#    #+#             */
-/*   Updated: 2024/03/27 19:23:15 by dakojic          ###   ########.fr       */
+/*   Updated: 2024/03/29 11:06:06 by dakojic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,15 @@ void	set_b_on_top2(t_stack **b, t_stack *cheap);
 void	set_a_on_top2(t_stack **a, t_stack *target);
 void	sa(t_stack **a, int to_print);
 void	sb(t_stack **b, int to_print);
-void	ss(t_stack **a, t_stack **b);
+void	ss(t_stack **a, t_stack **b, int to_print);
 void	pa(t_stack **a, t_stack **b, int to_print);
 void	pb(t_stack **a, t_stack **b, int to_print);
 void	ra(t_stack **a, int to_print);
 void	rb(t_stack **b, int to_print);
-void	rr(t_stack **a, t_stack **b);
+void	rr(t_stack **a, t_stack **b, int to_print);
 void	rra(t_stack **a, int to_print);
 void	rrb(t_stack **b, int to_print);
-void	rrr(t_stack **a, t_stack **b);
+void	rrr(t_stack **a, t_stack **b, int to_print);
 char	**ft_split(char const *str, char c);
 void	init_struct(t_stack **a, char **arg, int split);
 int		ft_isdigit(int c);
